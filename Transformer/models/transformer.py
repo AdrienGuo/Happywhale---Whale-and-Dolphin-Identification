@@ -18,6 +18,7 @@ from einops.layers.torch import Rearrange, Reduce
 data_path = "images/"
 train_df = pd.read_csv(data_path + "train.csv")
 train_df['path'] = data_path + "train_images/" + train_df['image']
+print(train_df['path'][0])
 
 img = Image.open(train_df['path'][0])
 print(img)
