@@ -3,6 +3,8 @@ from PIL import Image
 
 from torch.utils.data import Dataset, DataLoader
 
+# 不要直接拿圖片，先從 csv 裡面拿到 image_name，這樣比較好分成 train, validation
+# 然後在 __getitem__ 時，再去 train_images directory 裡面拿圖片
 class WhaleDolphinDataset(Dataset):
     def __init__(self, img_dir, transform=None):
         self.img_dir = img_dir
