@@ -1,4 +1,3 @@
-from pkgutil import get_loader
 from tqdm import tqdm
 
 import torch
@@ -9,6 +8,7 @@ from torch.cuda.amp import autocast as autocast
 
 from models.transformer import ViT
 from datasets.dataset import get_loaders
+from utils.utils import (check_accuracy)
 
 TRAIN_IMG_DIR = "images/train_images/"
 VAL_IMG_DIR = "images/val_images/"
@@ -84,9 +84,11 @@ def main():
         train(train_loader, model, optimizer, loss_fn, scaler)
 
         # save model
+        
         # check accuracy
-        # print some examples to console
+        check_accuracy(val_loader, model, device=DEVICE)
 
+        # print some examples to console
 
 if __name__ == "__main__":
     main()
