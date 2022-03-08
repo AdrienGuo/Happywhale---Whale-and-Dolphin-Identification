@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from pathlib import Path
 from PIL import Image
+from sklearn.utils import shuffle
 from torch import seed
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
@@ -52,7 +53,7 @@ def get_loaders(
     num_workers=1,
 ):
     df, n_classes = CSVPreprocessor()
-    train_df, valid_df = train_test_split(df, test_size=0.2)
+    train_df, valid_df = train_test_split(df, test_size=0.2, shuffle=False)
     train_dataset = WhaleDolphinDataset(
         img_dir=train_dir,
         df=train_df,
@@ -63,7 +64,7 @@ def get_loaders(
         df=valid_df,
         transform=val_transform,
     )
-    train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
     val_loader = DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers)
 
     return train_loader, val_loader, n_classes
