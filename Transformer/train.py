@@ -13,8 +13,10 @@ from datasets.dataset import get_loaders
 TRAIN_IMG_DIR = "images/train_images/"
 VAL_IMG_DIR = "images/val_images/"
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
+BATCH_SIZE = 4
 LEARNING_RATE = 1e-4
 NUM_EPOCHS = 2
+NUM_WORKERS = 1
 
 train_transform = transforms.Compose(
     [
@@ -57,21 +59,24 @@ def train(loader, model, optimizer, loss_fn, scaler):
 
 
 def main():
+    train_loader, val_loader, n_classes = get_loaders(
+        train_dir=TRAIN_IMG_DIR,
+        train_transform=train_transform,
+        val_transform=val_transform,
+        batch_size=BATCH_SIZE,
+        num_workers=NUM_WORKERS,
+    )
+
     model = ViT(
         in_channels=3,
         patch_size=16,
         emb_size=768,
         img_size=224,
         depth=12,
-        n_classes=2,
+        n_classes=n_classes,
     ).to(device=DEVICE)
     loss_fn = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
-
-    train_loader, val_loader = get_loaders(
-        TRAIN_IMG_DIR,
-
-    )
 
     scaler = torch.cuda.amp.GradScaler()
 
