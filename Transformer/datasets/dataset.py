@@ -60,7 +60,7 @@ def get_loaders(
     )
     val_dataset = WhaleDolphinDataset(
         img_dir=train_dir,
-        df=valid_df
+        df=valid_df,
         transform=val_transform,
     )
     train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
