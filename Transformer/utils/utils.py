@@ -11,5 +11,5 @@ def check_accuracy(loader, model, device="cuda"):
 
             preds = model(data).argmax(axis=-1)
             num_correct += (preds == targets).sum()
-        
+
     print(f"Val Acc: {num_correct/len(loader):3.6f}")
