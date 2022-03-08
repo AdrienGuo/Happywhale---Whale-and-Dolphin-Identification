@@ -183,4 +183,6 @@ class ViT(nn.Sequential):
             ClassificationHead(emb_size, n_classes)
         )
 
-print(summary(ViT(), (3, 224, 224), device='cuda'))
+if __name__ == "__main__":
+    print(summary(ViT(), (3, 224, 224), device='cuda'))
+    
