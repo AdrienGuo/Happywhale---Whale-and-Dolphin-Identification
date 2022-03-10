@@ -2,11 +2,13 @@ import os
 import pandas as pd
 from pathlib import Path
 from PIL import Image
+from skimage import io
 from sklearn.utils import shuffle
 from torch import seed
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 
+import torch
 from torch.utils.data import Dataset, DataLoader
 
 PATH = "images/"
@@ -37,8 +39,18 @@ class WhaleDolphinDataset(Dataset):
     
     def __getitem__(self, index):
         img_path = os.path.join(self.img_dir, self.df['image'].loc[index])
-        img = Image.open(img_path)
+        # img = Image.open(img_path)
+        img = io.imread(img_path)
         label = self.df['individual_id_label'].iloc[index]
+        # label 應該要轉成 tensor
+
+        # convert gray to rgb
+        if len(img.shape) == 2:
+            img = torch.from_numpy(img)
+            img = torch.stack([img, img, img],0)        # 把灰階疊三層
+            img = torch.transpose(img, 0, 2)
+            img = img.numpy()
+            print(img.shape)
 
         if self.transform is not None:
             img = self.transform(img)
