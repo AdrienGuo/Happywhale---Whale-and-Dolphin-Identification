@@ -45,9 +45,7 @@ def train(loader, model, optimizer, loss_fn, scaler):
     for batch_idx, (data, targets) in enumerate(loop):
         data = data.to(device=DEVICE)
         targets = targets.to(device=DEVICE)
-        print(targets.dtype)
         targets = targets.type(torch.LongTensor)        # PyTorch won't accept a FloatTensor as categorical target
-        print(targets.dtype)
 
         # forward
         with torch.cuda.amp.autocast():

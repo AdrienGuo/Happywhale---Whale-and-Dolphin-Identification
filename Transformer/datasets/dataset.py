@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 from pathlib import Path
 from PIL import Image
 from sklearn.utils import shuffle
@@ -38,6 +39,11 @@ class WhaleDolphinDataset(Dataset):
     def __getitem__(self, index):
         img_path = os.path.join(self.img_dir, self.df['image'].loc[index])
         img = Image.open(img_path)
+        if len(img.getbands()) == 2:
+            img = np.dstack((img, )*3)
+        image_array = np.array(img)
+        print("image_path", img_path)
+        print("image_array: ", image_array.shape)
         label = self.df['individual_id_label'].iloc[index]
 
         if self.transform is not None:
