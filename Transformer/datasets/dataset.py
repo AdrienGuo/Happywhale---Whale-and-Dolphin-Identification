@@ -1,13 +1,16 @@
 import os
 import pandas as pd
 import numpy as np
+import cv2
 from pathlib import Path
 from PIL import Image
+from skimage import io
 from sklearn.utils import shuffle
 from torch import seed
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 
+import torch
 from torch.utils.data import Dataset, DataLoader
 
 PATH = "images/"
@@ -38,14 +41,12 @@ class WhaleDolphinDataset(Dataset):
     
     def __getitem__(self, index):
         img_path = os.path.join(self.img_dir, self.df['image'].loc[index])
-        img = Image.open(img_path)
-        if len(img.getbands()) == 2:
-            img = np.dstack((img, )*3)
-        image_array = np.array(img)
-        print("image_path", img_path)
-        print("image_array: ", image_array.shape)
+        img = cv2.imread(img_path)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        
         label = self.df['individual_id_label'].iloc[index]
-
+        # label 應該要轉成 tensor
+        
         if self.transform is not None:
             img = self.transform(img)
         
