@@ -20,6 +20,7 @@ NUM_WORKERS = 1
 
 train_transform = transforms.Compose(
     [
+        transforms.ToPILImage(),
         transforms.Resize((224, 224)),
         transforms.ToTensor(),
     ]
