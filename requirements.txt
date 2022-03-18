@@ -1,18 +1,8 @@
 certifi==2021.10.8
-cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1598884132938/work
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
-cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
 cytoolz==0.11.0
-dask @ file:///tmp/build/80754af9/dask-core_1602083700509/work
 decorator==4.4.2
-einops @ file:///home/conda/feedstock_root/build_artifacts/einops_1642544991369/work
 fonttools==4.25.0
-imageio @ file:///tmp/build/80754af9/imageio_1594161405741/work
-joblib @ file:///tmp/build/80754af9/joblib_1601912903842/work
-kiwisolver @ file:///D:/bld/kiwisolver_1635836839743/work
-matplotlib @ file:///D:/bld/matplotlib-suite_1639359275746/work
 mkl-fft==1.3.1
-mkl-random @ file:///C:/ci/mkl_random_1626186184278/work
 mkl-service==2.4.0
 munkres==1.1.4
 numpy==1.22.2
