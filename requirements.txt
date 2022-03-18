@@ -1,89 +1,44 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: win-64
-blas=1.0=mkl
-brotli=1.0.9=h8ffe710_6
-brotli-bin=1.0.9=h8ffe710_6
-ca-certificates=2021.10.8=h5b45459_0
-certifi=2021.10.8=py38haa244fe_1
-cloudpickle=1.6.0=py_0
-colorama=0.4.4=pyh9f0ad1d_0
-cudatoolkit=11.3.1=h59b6b97_2
-cycler=0.11.0=pyhd8ed1ab_0
-cytoolz=0.11.0=py38he774522_0
-dask-core=2.30.0=py_0
-decorator=4.4.2=py_0
-einops=0.4.0=pyhd8ed1ab_0
-fonttools=4.25.0=pyhd3eb1b0_0
-freetype=2.10.4=hd328e21_0
-hdf5=1.10.4=nompi_hcc15c50_1106
-icc_rt=2019.0.0=h0cc432a_1
-icu=58.2=ha925a31_3
-imageio=2.9.0=py_0
-intel-openmp=2021.4.0=haa95532_3556
-joblib=0.17.0=py_0
-jpeg=9b=vc14h4d7706e_1
-kiwisolver=1.3.2=py38hbd9d945_1
-libbrotlicommon=1.0.9=h8ffe710_6
-libbrotlidec=1.0.9=h8ffe710_6
-libbrotlienc=1.0.9=h8ffe710_6
-libopencv=4.0.1=hbb9e17c_0
-libpng=1.6.37=h2a8f88b_0
-libtiff=4.1.0=h56a325e_1
-libuv=1.40.0=he774522_0
-lz4-c=1.9.2=hf4a77e7_3
-matplotlib=3.5.1=py38haa244fe_0
-matplotlib-base=3.5.1=py38h1f000d6_0
-mkl=2021.4.0=haa95532_640
-mkl-service=2.4.0=py38h2bbff1b_0
-mkl_fft=1.3.1=py38h277e83a_0
-mkl_random=1.2.2=py38hf11a4ad_0
-munkres=1.1.4=pyh9f0ad1d_0
-networkx=2.5=py_0
-numpy=1.22.2=pypi_0
-numpy-base=1.21.5=py38hc2deb75_0
-olefile=0.46=py_0
-opencv=4.0.1=py38h2a7c758_0
-openssl=1.1.1l=h8ffe710_0
-packaging=21.3=pyhd8ed1ab_0
-pandas=1.4.1=pypi_0
-pillow=8.0.0=py38hca74424_0
-pip=20.2.4=py38_0
-py-opencv=4.0.1=py38he44ac1e_0
-pyparsing=3.0.7=pyhd8ed1ab_0
-pyqt=5.9.2=py38hd77b12b_6
-python=3.8.5=h5fd99cc_1
-python-dateutil=2.8.2=pyhd8ed1ab_0
-python_abi=3.8=2_cp38
-pytorch=1.10.2=py3.8_cuda11.3_cudnn8_0
-pytorch-model-summary=0.1.1=py_0
-pytorch-mutex=1.0=cuda
-pytz=2021.3=pypi_0
-pywavelets=1.1.1=py38he774522_2
-pyyaml=5.3.1=py38he774522_0
-qt=5.9.7=vc14h73c81de_0
-scikit-image=0.17.2=py38h1e1f486_0
-scikit-learn=0.23.2=py38h47e9c7a_0
-scipy=1.7.3=py38h0a974cb_0
-setuptools=50.3.0=py38h9490d1a_1
-sip=4.19.13=py38hd77b12b_0
-six=1.16.0=pyh6c4a22f_0
-sqlite=3.33.0=h2a8f88b_0
-tbb=2021.5.0=h2d74725_0
-threadpoolctl=2.1.0=pyh5ca1d4c_0
-tifffile=2020.10.1=py38h8c2d366_2
-tk=8.6.10=he774522_0
-toolz=0.11.1=py_0
-torchsummary=1.5.1=pypi_0
-torchvision=0.11.3=py38_cu113
-tornado=6.1=py38h294d835_2
-tqdm=4.63.0=pyhd8ed1ab_0
-typing_extensions=3.10.0.2=pyh06a4308_0
-vc=14.1=h0510ff6_4
-vs2015_runtime=14.16.27012=hf0eaf9b_3
-wheel=0.35.1=py_0
-wincertstore=0.2=py38_0
-xz=5.2.5=h62dcd97_0
-yaml=0.1.7=vc14h4cb57cf_1
-zlib=1.2.11=vc14h1cdd9ab_1
-zstd=1.4.4=ha9fde0e_3
+certifi==2021.10.8
+cloudpickle @ file:///tmp/build/80754af9/cloudpickle_1598884132938/work
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
+cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
+cytoolz==0.11.0
+dask @ file:///tmp/build/80754af9/dask-core_1602083700509/work
+decorator==4.4.2
+einops @ file:///home/conda/feedstock_root/build_artifacts/einops_1642544991369/work
+fonttools==4.25.0
+imageio @ file:///tmp/build/80754af9/imageio_1594161405741/work
+joblib @ file:///tmp/build/80754af9/joblib_1601912903842/work
+kiwisolver @ file:///D:/bld/kiwisolver_1635836839743/work
+matplotlib @ file:///D:/bld/matplotlib-suite_1639359275746/work
+mkl-fft==1.3.1
+mkl-random @ file:///C:/ci/mkl_random_1626186184278/work
+mkl-service==2.4.0
+munkres==1.1.4
+networkx @ file:///tmp/build/80754af9/networkx_1598376031484/work
+numpy==1.22.2
+olefile==0.46
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1637239678211/work
+pandas==1.4.1
+Pillow @ file:///C:/ci/pillow_1602770972588/work
+pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1642753572664/work
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+pytorch-model-summary @ file:///home/conda/feedstock_root/build_artifacts/pytorch-model-summary_1598394892458/work
+pytz==2021.3
+PyWavelets @ file:///C:/ci/pywavelets_1601658407916/work
+PyYAML==5.3.1
+scikit-image==0.17.2
+scikit-learn @ file:///C:/ci/scikit-learn_1598377018496/work
+scipy @ file:///C:/ci/scipy_1641555198988/work
+sip==4.19.13
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl
+tifffile==2020.10.1
+toolz @ file:///tmp/build/80754af9/toolz_1601054250827/work
+torch==1.10.2
+torchsummary==1.5.1
+torchvision==0.11.3
+tornado @ file:///D:/bld/tornado_1635819758615/work
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1646031859244/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
+wincertstore==0.2
