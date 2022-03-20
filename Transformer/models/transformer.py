@@ -124,7 +124,7 @@ class ResidualAdd(nn.Module):
         x += res
         return x
 
-class FeedForwadBlock(nn.Sequential):           # 這裡用 nn.Sequential 很特別，似乎因為這樣就不用寫 forwad 了
+class FeedForwadBlock(nn.Sequential):           # 這裡用 nn.Sequential 很特別，似乎因為這樣就不用寫 forward 了
     def __init__(self, emb_size: int, expansion: int = 4, drop_p: float = 0.):
         super().__init__(
             nn.Linear(emb_size, expansion * emb_size),
@@ -161,7 +161,7 @@ class TransformerEncoder(nn.Sequential):
         super().__init__(*[TransformerEncoderBlock(**kwargs) for _ in range(depth)])
 
 class ClassificationHead(nn.Sequential):
-    def __init__(self, emb_size: int = 768, n_classes: int = 1000):
+    def __init__(self, emb_size, n_classes):
         super().__init__(
             Reduce('b n e -> b e', reduction='mean'),
             nn.LayerNorm(emb_size),
@@ -175,7 +175,7 @@ class ViT(nn.Sequential):
                  emb_size: int = 768,
                  img_size: int = 224,
                  depth: int = 12,
-                 n_classes: int = 1000,
+                 n_classes: int = 2,
                  **kwargs):
         super().__init__(
             PatchEmbedding(in_channels, patch_size, emb_size, img_size),
