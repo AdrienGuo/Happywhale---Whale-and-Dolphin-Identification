@@ -19,7 +19,7 @@ PATH = "images/"
 def CSVPreprocessor():
     df = pd.read_csv(Path(PATH, "train.csv"))
     N_CLASSES = len(df['individual_id'].unique())
-    print("N_CLASSES: ", N_CLASSES)         # 15,587 classes
+    print("N_CLASSES: ", N_CLASSES)                     # 15,587 classes
     labelencoder_id = LabelEncoder()
     df["individual_id_label"] = labelencoder_id.fit_transform(df["individual_id"])
     print(df)
@@ -27,7 +27,7 @@ def CSVPreprocessor():
     return df, N_CLASSES
 
 
-# 不要直接拿圖片，先從 csv 裡面拿到 image，這樣比較好分成 train, validation
+# 不要直接拿圖片，先從 csv 裡面拿到 image col，這樣比較好分成 train, validation
 # 然後在 __getitem__ 時，再去 train_images directory 裡面拿圖片
 class WhaleDolphinDataset(Dataset):
     def __init__(self, img_dir, df, transform=None):
