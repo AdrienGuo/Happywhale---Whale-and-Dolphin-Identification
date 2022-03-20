@@ -1,15 +1,17 @@
 import torch
+from tqdm import tqdm
 
 def check_accuracy(loader, model, device="cuda"):
-    num_correct = 0
+    loss, num_correct = 0, 0
 
     model.eval()
     with torch.no_grad():
-        for data, targets in loader:
+        for data, targets in tqdm(loader):
             data = data.to(device)
             targets = targets.to(device)
 
-            preds = model(data).argmax(axis=-1)
-            num_correct += (preds == targets).sum()
+            outputs = model(data)
+            preds = outputs.argmax(axis=-1)
+            num_correct += (preds == targets).sum().item()
 
-    print(f"Val Acc: {num_correct/len(loader):3.6f}")
+    print("Val Acc: {:3.6f}".format(num_correct/len(loader)*32))
