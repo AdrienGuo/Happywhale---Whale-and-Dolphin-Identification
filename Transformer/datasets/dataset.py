@@ -40,12 +40,12 @@ class WhaleDolphinDataset(Dataset):
         return len(self.df)
     
     def __getitem__(self, index):
-        img_path = os.path.join(self.img_dir, self.df['image'].loc[index])
+        img_path = os.path.join(self.img_dir, self.df['image'].iloc[index])
         img = cv2.imread(img_path)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         
         label = self.df['individual_id_label'].iloc[index]
-        # label 應該要轉成 tensor
+        torch.LongTensor(label)
         
         if self.transform is not None:
             img = self.transform(img)
@@ -57,10 +57,11 @@ def get_loaders(
     train_transform,
     val_transform,
     batch_size,
-    num_workers=1,
+    num_workers=4,
 ):
     df, n_classes = CSVPreprocessor()
     train_df, valid_df = train_test_split(df, test_size=0.2, shuffle=False)
+    print(valid_df)
     train_dataset = WhaleDolphinDataset(
         img_dir=train_dir,
         df=train_df,
