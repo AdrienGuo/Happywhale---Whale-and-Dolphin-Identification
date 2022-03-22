@@ -65,7 +65,7 @@ def train(loader, model, optimizer, loss_fn, scaler):
         scaler.scale(batchLoss).backward()
         scaler.step(optimizer)
         scaler.update()
-    print("Train Acc: {:3.6f}, Loss: {:3.6f}".format(num_correct/len(loader)*BATCH_SIZE, train_loss/len(loader)))
+    print("Train Acc: {:3.6f}, Loss: {:3.6f}".format(num_correct/(len(loader)*BATCH_SIZE), train_loss/len(loader)))
 
 
 def main():
