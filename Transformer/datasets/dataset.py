@@ -18,6 +18,7 @@ PATH = "images/"
 
 def CSVPreprocessor():
     df = pd.read_csv(Path(PATH, "train.csv"))
+    df = df[:10000]
     N_CLASSES = len(df['individual_id'].unique())
     print("N_CLASSES: ", N_CLASSES)                     # 15,587 classes
     labelencoder_id = LabelEncoder()
