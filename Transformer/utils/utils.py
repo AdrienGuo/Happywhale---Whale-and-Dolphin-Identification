@@ -14,4 +14,4 @@ def check_accuracy(loader, model, device="cuda"):
             preds = outputs.argmax(axis=-1)
             num_correct += (preds == targets).sum().item()
 
-    print("Val Acc: {:3.6f}".format(num_correct/len(loader)*32))
+    print("Val Acc: {:3.6f}".format(num_correct/(len(loader)*32)))
